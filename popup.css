@@ -87,6 +87,7 @@ body {
     border-radius-top: 2px;
     padding: 3px;
     height: 35px;
+    float: right;
 }
 
 #SearchInput {

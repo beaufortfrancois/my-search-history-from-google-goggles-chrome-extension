@@ -8,18 +8,19 @@ var oldScrollTop = 0;
 var displayedResults = 0;
 var numberResults = 0;
 
-function onLoad() {
+document.addEventListener('DOMContentLoaded', function () {
     // Initialize onClick search bar events
     document.getElementById("Moments").addEventListener('scroll', loadMore, false);
     document.getElementById("SearchList").addEventListener('click', clickSearch, false);
     document.getElementById("Input").addEventListener('focus', focusInput, false);
+    document.getElementById("Input").addEventListener('search', search, false);
     document.getElementById("SearchStarredOnly").addEventListener('click', search, false);
     document.getElementById("SearchPublicOnly").addEventListener('click', search, false);
     document.getElementById("AdvancedSearch").addEventListener('click', displaySearchOptions, false);
     select(document.getElementById('MenuItemSearch'));
     // And retrieve Moments after
     search();
-}
+})
 
 function displaySearchOptions() {
     document.getElementById('AdvancedSearch').classList.remove('visible');
@@ -105,6 +106,14 @@ function getMoments() {
     }
 }
 
+function removeLoadingScrollbar() {
+    document.getElementById("Moments").classList.remove("loading");
+}
+
+function openDeveloperTab() {
+    chrome.tabs.create({url: PROFILE_URL});
+}
+
 function displayMoments() {
     if (this.readyState == 4) {
         if (this.status == 200) {
@@ -112,7 +121,7 @@ function displayMoments() {
             // Add Loading Animation
             clearTimeout(loadingTimeOut);
             moments.classList.add('loading');
-            loadingTimeOut = setTimeout('document.getElementById("Moments").classList.remove("loading")', 700);
+            loadingTimeOut = setTimeout(removeLoadingScrollbar, 700);
 
             var fragment = document.createDocumentFragment();
             var data = JSON.parse(this.responseText);
@@ -133,7 +142,8 @@ function displayMoments() {
                     // it's time to cheer me up!
                     var cheers = document.createElement("div");
                     cheers.classList.add('cheers');
-                    cheers.innerHTML = "No results?<br/>Time to cheer up the <a href=\"#\" onClick=\"javascript:chrome.tabs.create({url: \'" + PROFILE_URL+ "\'})\">developer</a>!";
+                    cheers.innerHTML = "No results?<br/>Time to cheer up the <a href=\"#\">developer</a>!";
+		    cheers.addEventListener('click', openDeveloperTab);
                     moments.appendChild(cheers);
                 }
 
@@ -151,7 +161,7 @@ function displayMoments() {
 
                 // Create Moment Image
                 image = document.createElement("img");
-                image.setAttribute("src", m.imageUrl);
+                image.setAttribute("src", m.imageUrl + "=s50");
                 image.setAttribute("data-url", m.url);
                 image.addEventListener("click", openMomentTab);
                 moment.appendChild(image);

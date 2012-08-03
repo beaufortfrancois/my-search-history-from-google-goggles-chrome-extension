@@ -1,21 +1,19 @@
 <html>
-    <link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
     <link href='popup.css' rel='stylesheet' type='text/css'>
     <script type="text/javascript" src='popup.js'></script>
-    <body onload="onLoad()">
+    <body>
         <div id="header">
             <div id="unofficial">unofficial</div>
             <img id="gogglesLogo" src="images/s2.png" width="162" height="25">
         </div>
         <div id="TopBar">
-            <div style="float:right">
-                <div id="SearchList">
-                    <div id="List">Search</div>
-                    <div id="Triangle"></div>
-                </div>
-                <div id="SearchInput">
-                    <input id="Input" type="search" onsearch="search()">
-                </div>
+            <div id="SearchList">
+                <div id="List">Search</div>
+                <div id="Triangle"></div>
+            </div>
+            <div id="SearchInput">
+                <input id="Input" type="search">
             </div>
         </div>
         <div id="Menu">
@@ -23,7 +21,7 @@
             <div class="MenuItem" onClick="select(this)" id="MenuItemLocation"><div>Location</div></div>
             <div class="MenuItem" onClick="select(this)" id="MenuItemTag"><div>Tag</div></div>
         </div>
-        <div style="clear:both;">
+        <div>
             <div id="AdvancedSearch" class="visible"><a href="#">Advanced Search</a></div>
             <div id="SearchOptions">
                 <input type="checkbox" id="SearchStarredOnly">Starred Only

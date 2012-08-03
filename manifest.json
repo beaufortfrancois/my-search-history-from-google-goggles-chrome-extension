@@ -1,6 +1,7 @@
 {
   "name": "My Search History from Google Goggles™",
-  "version": "1.0.0",
+  "version": "1.1.0",
+  "manifest_version": 2,
 
   "description": "Displays my Search History from Google Goggles ™",
   "icons": { 
@@ -10,9 +11,11 @@
     "16": "images/16.png"
   },
 
+  "content_security_policy": "default-src 'self'; connect-src https://www.google.com/goggles/a/api/json/moments/; font-src *; style-src *; img-src *",
+
   "permissions": [
+    "https://fonts.googleapis.com/css?family=Droid+Sans",
     "https://www.google.com/goggles/a/api/json/moments/",
-    "http://fonts.googleapis.com/css?family=Droid+Sans",
     "tabs"
   ],
   "browser_action": {
