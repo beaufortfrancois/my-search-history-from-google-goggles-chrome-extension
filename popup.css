@@ -1,0 +1,304 @@
+body {
+    margin: auto;
+    font-family: 'Droid Sans', sans-serif;
+    font-size: 13px;
+    width: 300px;
+    color: #333;
+}
+#Moments {
+    height: 266px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    clear: both;
+}
+.Moment {
+    min-height: 50px;
+    clear:both;
+    margin-top: 6px;
+    margin-bottom: 6px;
+    margin-right: 1px;
+}
+.Moment img {
+    width: 50px;
+    float:left;
+    padding: 2;
+    cursor: hand;
+}
+
+.Moment > div {
+    color: #111;
+    margin-left: 56px;
+}
+.Moment > .top > div.title {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-top:2px;
+    width: 184px;
+}
+.Moment > .top > div.source {
+    content: url('images/source.png');
+    float: right;
+    width: 16px;
+    padding-top: 2px;
+    height: 12px;
+}
+.Moment > .top > div.starred {
+    content: url('images/star-on.png');
+    float: right;
+    width: 18px;
+    height: 18px;
+}
+.Moment > .top > div.unstarred {
+    content: url('images/star-off.png');
+    float: right;
+    width: 18px;
+    height: 18px;
+}
+.Moment > .top > div.shared {
+    content: url('images/shared-on.png');
+    float: right;
+    width: 10px;
+    height: 10px;
+    padding-top:4px;
+}
+.Moment > .top > div.unshared {
+    content: url('images/shared-off.png');
+    float: right;
+    width: 10px;
+    height: 10px;
+    padding-top:4px;
+}
+.Moment > div.creationTime {
+    color: #777;
+}
+.Moment > div.location {
+    color: #555;
+}
+.Moment > div.note {
+    padding:2px;
+    color: #777;
+    font-style: italic;
+    font-size: 11px;
+}
+
+#TopBar {
+    margin-top: 6px;
+    border-radius-top: 2px;
+    padding: 3px;
+    height: 35px;
+}
+
+#SearchInput {
+    float: left;
+    position: relative;
+    display: inline-block;
+    margin-left: 3px;
+}
+
+#Input {
+    height: 29px;
+    width: 209px;
+    font-family: 'Droid Sans', sans-serif;
+}
+
+#SearchList {
+    float: left;
+    border-radius: 2px;
+    background-color: whiteSmoke;
+    background-image: -webkit-linear-gradient(top, #f5f5f5, #f1f1f1);
+    border: 1px solid gainsboro;
+    color: #444;
+    font-size: 11px;
+    font-weight: bold;
+    line-height: 27px;
+    min-width: 56px;
+    padding: 0 18px 0 6px;
+    text-align: center;
+    vertical-align: middle;
+    position: relative;
+    display: inline-block;
+    cursor: default;
+}
+
+#SearchList:hover {
+    border-color: #c6c6c6;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+    background-color: #f8f8f8;
+    background-image: -webkit-linear-gradient(top, #f8f8f8, #f1f1f1);
+    color: #333;
+}
+
+#SearchList.selected {
+    box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+    background-color: #eee;
+    background-image: -webkit-linear-gradient(top, #eee, #e0e0e0);
+    border: 1px solid #ccc;
+}
+
+#List {
+    vertical-align: top;
+    white-space: nowrap;
+    position: relative;
+    display: inline-block;
+}
+
+#Triangle {
+    border-color: #777 transparent;
+    border-style: solid;
+    border-width: 4px 4px 0 4px;
+    height: 0px;
+    width: 0px;
+    position: absolute;
+    right: 5px;
+    top: 12px;
+    display: inline-block;
+}
+
+#Menu {
+    box-shadow: 0 2px 4px #ccc;
+    -webkit-transition: opacity .218s;
+    background: white;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    margin: 0px;
+    padding: 0 0 6px;
+    position: absolute;
+    left: 3px;
+    top: 75px;
+    display: none;
+    z-index: 30000;
+}
+
+#Menu.visible {
+    display: block;
+}
+
+.MenuItem {
+    position: relative;
+    color: #333;
+    cursor: pointer;
+    padding: 6px 7em 6px 30px;
+}
+
+.MenuItem:hover {
+    background-color: #eee;
+    border-color: #eee;
+    border-style: dotted;
+    border-width: 1px 0;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+#Moments {
+}
+
+#Moments::-webkit-scrollbar-track-piece {
+    background-color: white;
+}
+
+#Moments::-webkit-scrollbar {
+    width: 10px;
+}
+
+#Moments::-webkit-scrollbar-thumb:vertical {
+    background-color: rgba(0,0,0,0.2);
+    height:50px;
+    border-left: 2px solid white;
+    border-right: 1px solid white;
+}
+
+#Moments.loading::-webkit-scrollbar-thumb:vertical {
+    background-color: #dd4b39;
+}
+
+#NumberResults {
+    background-color: white;
+    text-align: left;
+    margin-top:4px;
+    margin-left: 1px;
+    margin-right: -1px;
+    background-image: -webkit-radial-gradient(0% 100%, 10em 4px, #ddd, white);
+    box-shadow: inset 0px -1px 1px rgba(0,0,0,0.2);
+    height: 15px;
+}
+
+#NumberResults span:after {
+    content: ' results';
+}
+
+#NumberResults span {
+    padding: 4 6 2 6;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border: 1px solid #ccc;
+    border-bottom: 0px;
+    font-size: 11px;
+    box-shadow: 1px -1px 1px rgba(0,0,0,0.2);
+    background-color: white;
+}
+
+.message, .cheers {
+    text-align: center;
+    line-height: 22px;
+    padding-top: 65px;
+}
+
+a {
+    color: #357ae8;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+#AdvancedSearch {
+    display: none;
+}
+
+#AdvancedSearch.visible {
+    float: right;
+    margin-top: -6px;
+    margin-right: 6px;
+    margin-bottom: 6px;
+    font-size: 11px;
+    display: block;
+}
+
+#SearchOptions {
+    display: none;
+}
+
+#SearchOptions.visible {
+    margin-top: -6px;
+    font-size: 11px;
+    display: block;
+    float: right;
+    font-size: 11px;
+    margin-right: 6px;
+
+}
+
+#header {
+    height: 37px;
+    background-color: #357ae8;
+    border-bottom: 1px solid #2f5bb7;
+    background-image: linear-gradient(top, #4d90fe, #4787ed);
+    box-shadow: rgba(0, 0, 0, 0.2) 0 1px 2px 0;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+}
+#gogglesLogo {
+    margin: 0 auto;
+    display: block;
+    padding-top: 8px;
+}
+#unofficial {
+    position: absolute;
+    left: 235px;
+    color: white;
+    top: 17px;
+    font-size: 10px;
+    -webkit-transform: rotate(-5deg);
+}
